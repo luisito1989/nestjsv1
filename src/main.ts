@@ -11,6 +11,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
+  const PORT = process.env.PORT || 3000;
   const config = new DocumentBuilder()
     .setTitle('API example')
     .setDescription('Platzi store test')
@@ -19,6 +20,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
   app.enableCors();
-  await app.listen(3000);
+  await app.listen(PORT, () => {
+    console.log(`Enable on port ${PORT}`);
+  });
 }
 bootstrap();
