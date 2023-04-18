@@ -18,7 +18,7 @@ export class UsersController {
   constructor(private usersServices: UsersService) {}
 
   @Get()
-  @ApiOperation({ summary: 'List of products'})
+  @ApiOperation({ summary: 'List of products' })
   getUsers() {
     return this.usersServices.findAll();
   }
